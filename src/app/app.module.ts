@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 //app basic setting
 import { AppComponent } from './app.component';
@@ -29,6 +30,9 @@ import { SelectedConditionComponent } from './components/selected-condition/sele
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ServiceHeaderComponent } from './components/service-header/service-header.component';
 
+//services
+import { HttpGatewayService } from './services/http-gateway.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,14 +53,17 @@ import { ServiceHeaderComponent } from './components/service-header/service-head
     FilterConditionComponent,
     SelectedConditionComponent,
     ProductCardComponent,
-    ServiceHeaderComponent
+    ServiceHeaderComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    HttpGatewayService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
